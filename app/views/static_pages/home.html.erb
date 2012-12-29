@@ -1,21 +1,29 @@
 <% if signed_in? %>
   <div class="row">
-    <aside class="span4">
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
-      
-    </aside>
+  <%= form_for(@question, :action => :create) do |f| %>
     
-  </div>  
+    <%= f.text_field :description %> </br>
+    <%= f.submit %>
+  <% end %>  
+  </div>
+  <% @question_all.each do |q| %>
+    <div class="aside">
+      <%= link_to q.description, q %></br>
+      <div class="section">
+      <%= q.answers.size %> Answers. 
+      </div>
+      ------------------------------------------------------------------------------------------------------
+    </div>
+
+  <% end %>  
 <% else %>
   <div class="center hero-unit">
-    <h1>Welcome to the Sample App</h1>
+    <h1>Welcome to the NoNamed</h1>
 
     <h2>
       This is the home page for the
-      <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-      sample application.
+      NoNamed
+      application.
     </h2>
 
     <%= link_to "Sign up now!", signup_path, 

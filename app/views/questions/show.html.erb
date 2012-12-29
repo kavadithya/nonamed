@@ -1,0 +1,17 @@
+<div class="row">
+<div class="aside">
+	<%= @q.description %> <%= @q.answers.size %>
+	<% if not @q.answers.all.empty? %>
+		<% @q.answers.all.each do |a| %>
+			<div class="aside">
+				<%= a.description %>
+			</div>
+		<% end %>
+	<% end %>
+	<%= form_tag({:controller => :questions, :action => :add_answer, :id => @q.id}, {:method => :post}) do |a| %>
+	
+		<%= text_field_tag "description", "description" %>
+		<%= submit_tag "Add Answer" %>
+	<% end %>
+</div>
+</div>
