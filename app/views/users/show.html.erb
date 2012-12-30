@@ -4,8 +4,12 @@
     <section>
       <h1>
         <%= gravatar_for @user %>
-        <%= @user.name %>
+        <%= @user.name %></br>
+    
       </h1>
     </section>
+        Member of Domain <%= @user.subdomain.domain.name %> </br>
+        Member of Subdomain <%= @user.subdomain.name %>
+
   </aside>
   
